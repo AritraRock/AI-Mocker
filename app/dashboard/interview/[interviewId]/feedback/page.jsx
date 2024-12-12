@@ -88,7 +88,7 @@ const Feedback = ({ params }) => {
     feedbackList.length > 0
       ? (
           feedbackList.reduce((acc, item) => acc + (item.rating || 0), 0) /
-          15
+          5
         ).toFixed(2)
       : "N/A";
 
@@ -105,7 +105,7 @@ const Feedback = ({ params }) => {
       ) : (
         <>
           <h2 className="text-primary text-lg my-2">
-            Your overall interview rating: <strong>{overallRating}/10</strong>
+            Your overall interview rating: <strong>{overallRating*10}/10</strong>
           </h2>
           <h2 className="text-sm text-gray-500">
             Find below interview questions with correct answers, your answer, and feedback for
