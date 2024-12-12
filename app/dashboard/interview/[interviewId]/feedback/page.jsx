@@ -13,7 +13,6 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
-
 const Feedback = ({ params }) => {
   const [feedbackList, setFeedbackList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,10 +39,12 @@ const Feedback = ({ params }) => {
             toString(item.userAns),
             toString(item.correctAns)
           );
+          
           return { ...item, similarity };
         })
       );
 
+      console.log("Updated Feedback:", updatedFeedback); // Log the updated feedback list
       setFeedbackList(updatedFeedback);
     } catch (err) {
       console.error("Error fetching feedback:", err);
@@ -77,6 +78,7 @@ const Feedback = ({ params }) => {
       );
 
       const similarityScore = response.data.similarity_scores?.[0];
+      console.log("Similarity Score:", similarityScore); // Log the similarity score
       return similarityScore;
     } catch (error) {
       console.error("Error computing similarity:", error.response?.data || error.message);
@@ -87,10 +89,15 @@ const Feedback = ({ params }) => {
   const overallRating =
     feedbackList.length > 0
       ? (
-          feedbackList.reduce((acc, item) => acc + (item.rating || 0), 0) /
-          5
-        ).toFixed(2)
+          (feedbackList.reduce((acc, item) => acc + Number(item.rating[0]), 0) /
+            (feedbackList.length * 5)) *
+          10
+        )
+          .toFixed(2)
       : "N/A";
+
+  console.log("Feedback List Ratings:", feedbackList.map(item => item.rating)); // Log the ratings of feedbackList
+  console.log("Overall Rating:", overallRating); // Log the calculated overall rating
 
   return (
     <div className="p-10">
@@ -105,7 +112,7 @@ const Feedback = ({ params }) => {
       ) : (
         <>
           <h2 className="text-primary text-lg my-2">
-            Your overall interview rating: <strong>{overallRating*10}/10</strong>
+            Your overall interview rating: <strong>{overallRating}/10</strong>
           </h2>
           <h2 className="text-sm text-gray-500">
             Find below interview questions with correct answers, your answer, and feedback for
@@ -143,4 +150,4 @@ const Feedback = ({ params }) => {
   );
 };
 
-export default Feedback;
+export default Feedback;
