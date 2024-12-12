@@ -69,7 +69,7 @@ const Feedback = ({ params }) => {
         },
         {
           headers: {
-            Authorization: Bearer ${API_KEY},
+            Authorization: `Bearer ${API_KEY}`,
             "Content-Type": "application/json",
             "x-wait-for-model": "true",
           },
