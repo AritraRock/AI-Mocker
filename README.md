@@ -49,23 +49,6 @@ AI-Mocker is an AI-powered interview simulation platform built with **Next.js**.
 
 ---
 
-## 📁 Project Structure
-
-```bash
-ai-mocker/
-├── app/
-│   ├── interview/         # Interview flow pages
-│   ├── api/               # API routes
-│   └── auth/              # Clerk auth pages
-├── components/            # Reusable UI components
-├── lib/                   # Helpers, API clients, utils
-├── db/                    # Drizzle schema and queries
-├── public/
-├── styles/
-├── .env.example
-├── next.config.js
-└── README.md
-```
 ## 🧪 Environment Variables
 ### Create a .env file in the root directory and populate with the following keys:
 ```
