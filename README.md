@@ -38,14 +38,14 @@ AI-Mocker is an AI-powered interview simulation platform built with **Next.js**.
 
 ## 🛠️ Tech Stack
 
-| Layer         | Tools & Libraries                         |
+| Layer         | Tools & Libraries                          |
 |---------------|--------------------------------------------|
 | Frontend      | Next.js, Tailwind CSS, React               |
 | Auth          | Clerk.dev                                  |
 | Database      | PostgreSQL (Neon.tech) with Drizzle ORM    |
 | AI/NLP        | Gemini API (Google), Hugging Face API      |
 | Speech/Text   | Web Speech API (speech-to-text)            |
-| Deployment    | Vercel / Other hosting platforms           |
+| Deployment    | Vercel                                     |
 
 ---
 
